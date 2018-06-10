@@ -375,17 +375,15 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
+          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/06/09/hello-world/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -517,7 +515,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  444字
+                  434字
                 </span>
               
 
@@ -555,40 +553,14 @@
 
       
         
-          
-            <p>#单例模式的六种方式#</p>
-<p> 1.饿汉式</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HungurySingleton</span></span>&#123;</span><br><span class="line">    		<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> HungurySingleton h = <span class="keyword">new</span> HungurySingleton（）；</span><br><span class="line">    		<span class="keyword">private</span> HungurySingleton&#123;</span><br><span class="line">    		&#125;</span><br><span class="line"></span><br><span class="line">    		<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> HungurySingleton <span class="title">getHungurySingleton</span><span class="params">()</span></span>&#123;</span><br><span class="line">    			<span class="keyword">return</span> h;</span><br><span class="line">    		&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">- 不足：无法做延时加载</span><br><span class="line">- 优化：懒汉模式</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">2</span>.懒汉式</span><br><span class="line"></span><br><span class="line">```java</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LazySingleton</span></span>&#123;</span><br><span class="line">		<span class="keyword">private</span> <span class="keyword">static</span> LazySingleton instance;</span><br><span class="line"></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> LazySingleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">			<span class="keyword">if</span>(instance == <span class="keyword">null</span>)&#123;</span><br><span class="line">				instance = <span class="keyword">new</span> LazySingleton();</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">return</span> instance;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>缺点：多线程无法保证实例是唯一的</li>
-<li>优化：懒汉线程安全</li>
-</ul>
-<p>3.线程安全懒汉式</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LazySingleton</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span>  LazySingleton instance;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//方法中声明synchronized关键字</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> LazySingleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(instance == <span class="keyword">null</span>)&#123;</span><br><span class="line">			instance = <span class="keyword">new</span> LazySingleton();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> instance;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//同步代码块实现</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span>  LazySingleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">synchronized</span>(LazySingleton.class)&#123;</span><br><span class="line">			<span class="keyword">if</span>(instance == <span class="keyword">null</span>)&#123;</span><br><span class="line">				instance = <span class="keyword">new</span> LazySingleton();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> instance;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>不足：使用synchronized关键字导致性能缺陷</li>
-<li>优化：DCL-双重检锁机制</li>
-</ul>
-<p>4.双重检锁机制</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DclSingleton</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">volatile</span> DclSingleton instance = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">DclSingleton</span><span class="params">()</span></span>&#123;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> DclSingleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(instance == <span class="keyword">null</span>)&#123;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">synchronized</span>(DclSingleton.class)&#123;</span><br><span class="line">				<span class="keyword">if</span>(instance == <span class="keyword">null</span>)&#123;</span><br><span class="line">					instance = <span class="keyword">new</span> DclSingleton();</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> instance;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>不足：JVM的即时编译器中存在指令重排序的优化</li>
-<li>优化：静态内部类/枚举</li>
-</ul>
-<p>5.静态内部类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StaticInnerSingleton</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">StaticInnerSingleton</span><span class="params">()</span></span>&#123;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> StaticInnerSingleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> SingletonHelper.sInstance;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonHelper</span></span>&#123;</span><br><span class="line">		<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> StaticInnerSingleton sInstance = <span class="keyword">new</span> StaticInnerSingleton();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>主要利用了类中静态变量的唯一性</p>
-<ul>
-<li>优点：JVM本身机制保证了线程安全/没有使用synchronized没有性能缺陷, private外部没有办法访问</li>
-<li>原因：static/final</li>
-</ul>
-<p>6.枚举</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">   <span class="keyword">public</span> <span class="keyword">enum</span> EnumSingleton&#123;</span><br><span class="line">	<span class="comment">//定义一个枚举的元素，它就是Singleton的一个实例</span></span><br><span class="line">	INSTANCE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>优点：写法简单，线程安全</li>
-</ul>
-
-          
+          <p><img src="http://7xu251.com1.z0.glb.clouddn.com/189501361691558385.jpg" alt=""><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/08/06/单利模式的六种实现方式/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -737,56 +709,17 @@
       
         
           
-            <p>在WelcomeActivity.class中</p>
-<pre><code>videoview = (MyVideoView) findViewById(R.id.videoview);
-videoview.setVideoURI(Uri.parse(&quot;android.resource://&quot;+this.getPackageName()+&quot;/&quot;+R.raw.video));
-videoview.start();
-  videoview.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-    @Override
-        public void onCompletion(MediaPlayer mediaPlayer) {
-        videoview.start();
-    }
-   });
-</code></pre><p>video保存在res/raw目录下，布局的时候在这个视频上一般都有个Button，“立即体验”或“开始使用”之类的，点击该button应该跳转到下一个activity并finish当前activity</p>
-<pre><code>button.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
-        if(videoview.isPlaying()){
-            videoview.stopPlayback();
-            videoview=null;
-        }
-        //此处应该跳转到MainActivity
-        WelcomeActivity.this.finish();
-    }
-});
-</code></pre><p>全屏播放视频要重新定义VideoView</p>
-<pre><code>public class MyVideoView extends VideoView {
-    public MyVideoView(Context context) {
-        super(context);
-    }
-    public MyVideoView(Context context, AttributeSet attrs) {
-        super(context, attrs);
-    }
-    public MyVideoView(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
-    }
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        int width = getDefaultSize(0, widthMeasureSpec);
-        int height = getDefaultSize(0, heightMeasureSpec);
-        setMeasuredDimension(width, height);
-    }
-    @Override
-    public void setOnPreparedListener(MediaPlayer.OnPreparedListener l) {
-        super.setOnPreparedListener(l);
-    }
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        return super.onKeyDown(keyCode, event);
-    }
-}
-</code></pre>
-          
+          在WelcomeActivity.class中
+videoview = (MyVideoView) findViewById(R.id.videoview);
+videoview.setVideoURI(Uri.parse(&quot;android.resource://&quot;+this.g
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/15/android欢迎界面使用视频-1/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -957,103 +890,18 @@ videoview.start();
       
         
           
-            <p> FlexboxLayout是Android的一个功能和<a href="https://www.w3.org/TR/css-flexbox-1/" target="_blank" rel="noopener">CSS FLEXIBLE BOX LAYOUT</a> 类似的库。</p>
-<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>添加依赖在build.gradle中</p>
-<pre><code>dependencies {
-    compile &apos;com.google.android:flexbox:0.1.2&apos;
-}
-</code></pre><p>FlexboxLayout继承自ViewGroup，在layout XML中可以这样使用：</p>
-<pre><code>&lt;com.google.android.flexbox.FlexboxLayout
-    xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
-    xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;
-    android:layout_width=&quot;match_parent&quot;
-    android:layout_height=&quot;match_parent&quot;
-    app:flexWrap=&quot;wrap&quot;
-    app:alignItems=&quot;stretch&quot;
-    app:alignContent=&quot;stretch&quot; &gt;
-
-    &lt;TextView
-        android:id=&quot;@+id/textview1&quot;
-        android:layout_width=&quot;120dp&quot;
-        android:layout_height=&quot;80dp&quot;
-        app:layout_flexBasisPercent=&quot;50%&quot;
-        /&gt;
-
-    &lt;TextView
-        android:id=&quot;@+id/textview2&quot;
-        android:layout_width=&quot;80dp&quot;
-        android:layout_height=&quot;80dp&quot;
-        app:layout_alignSelf=&quot;center&quot;
-        /&gt;
-
-    &lt;TextView
-        android:id=&quot;@+id/textview3&quot;
-        android:layout_width=&quot;160dp&quot;
-        android:layout_height=&quot;80dp&quot;
-        app:layout_alignSelf=&quot;flex_end&quot;
-        /&gt;
-&lt;/com.google.android.flexbox.FlexboxLayout&gt;
-</code></pre><p>在java代码中像下边这样使用：</p>
-<pre><code>FlexboxLayout flexboxLayout = (FlexboxLayout) findViewById(R.id.flexbox_layout);
-flexboxLayout.setFlexDirection(FlexboxLayout.FLEX_DIRECTION_COLUMN);
-
-View view = flexboxLayout.getChildAt(0);
-FlexboxLayout.LayoutParams lp = (FlexboxLayout.LayoutParams) view.getLayoutParams();
-lp.order = -1;
-lp.flexGrow = 2;
-view.setLayoutParams(lp);
-</code></pre><h2 id="支持的属性"><a href="#支持的属性" class="headerlink" title="支持的属性"></a>支持的属性</h2><p>可以指定如下这些属性：</p>
-<h5 id="flexDirection"><a href="#flexDirection" class="headerlink" title="flexDirection"></a>flexDirection</h5><p>flexDirection 属性决定items在Flexbox layout中排列方向。</p>
-<p>有四个值可以选择：</p>
-<ul>
-<li>row（默认值）：从左到右</li>
-<li>row-reverse：从右到左</li>
-<li>column：垂直方向，从上到下。</li>
-<li>column-reverse：垂直方向，从下到上。</li>
-</ul>
-<p>效果图：<br><img src="http://7xu251.com1.z0.glb.clouddn.com/flex-direction.gif" alt="flexDirection"></p>
-<h5 id="flexWrap"><a href="#flexWrap" class="headerlink" title="flexWrap"></a>flexWrap</h5><p> flexWrap控制flex容器中的items是多行还是单行，该属性支持换行排列。</p>
-<p> 有三个值</p>
-<ul>
-<li>nowrap ：不换行</li>
-<li>wrap：按正常方向换行</li>
-<li>wrap-reverse：按反方向换行</li>
-</ul>
-<p>效果如图：<br><img src="http://7xu251.com1.z0.glb.clouddn.com/flex-wrap.gif" alt="flexWrap"></p>
-<h5 id="justifyContent"><a href="#justifyContent" class="headerlink" title="justifyContent"></a>justifyContent</h5><p>这个属性控制items在主轴上的对其方式。</p>
-<p>有五个值：</p>
-<ul>
-<li>flex_start ：(默认值)左对齐</li>
-<li>flex_end ：右对齐</li>
-<li>center ：居中</li>
-<li>space_between ：两端对齐，项目之间的间隔都相等。</li>
-<li>space_around ：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。</li>
-</ul>
-<p>效果图：<br><img src="http://7xu251.com1.z0.glb.clouddn.com/justify-content.gif" alt="justify"></p>
-<h5 id="alignItems"><a href="#alignItems" class="headerlink" title="alignItems"></a>alignItems</h5><p>这个属性控制竖直轴方向的对其方式。</p>
-<p>有五个值：</p>
-<ul>
-<li>stretch (默认值) 如果项目未设置高度或设为auto，将占满整个容器的高度。</li>
-<li>flex_start：竖直轴的起点</li>
-<li>flex_end：竖直轴的终点</li>
-<li>center：竖直轴的中心</li>
-<li>baseline： 项目的第一行文字的基线对其。</li>
-</ul>
-<p>效果图：<br><img src="http://7xu251.com1.z0.glb.clouddn.com/align-items.gif" alt="align"></p>
-<h5 id="alignContent"><a href="#alignContent" class="headerlink" title="alignContent"></a>alignContent</h5><p>alignContent属性定义在flex容器中多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。</p>
-<ul>
-<li>stretch (默认)：轴线占满整个交叉轴。</li>
-<li>flex_start ：与十字轴的起点对齐</li>
-<li>flex_end   ：与十字轴的终点对齐</li>
-<li>center     ：与十字轴的中心点对其</li>
-<li>space_between ：与十字轴两端对齐，轴线之间的间隔平均分布。</li>
-<li>space_around ：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。</li>
-</ul>
-<p>效果图：<br><img src="http://7xu251.com1.z0.glb.clouddn.com/align-content.gif" alt="acontent"></p>
-<p>英语水平有限，哪里翻译的不好或者不对，请在评论中指正！！！谢谢欣赏！！</p>
-<p><a href="https://github.com/google/flexbox-layout" target="_blank" rel="noopener">原文地址</a></p>
-
-          
+           FlexboxLayout是Android的一个功能和CSS FLEXIBLE BOX LAYOUT 类似的库。
+使用方法添加依赖在build.gradle中
+dependencies {
+    compile &apos;com.google.android:flexbox:0.1.2&apo
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/05/16/FlexboxLayout/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

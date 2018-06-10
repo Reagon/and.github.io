@@ -94,18 +94,17 @@
 
 
 
-<meta name="description" content="#单例模式的六种方式#  1.饿汉式 12345678910111213141516171819202122232425262728293031public class HungurySingleton&amp;#123;    		private static final HungurySingleton h = new HungurySingleton（）；    		private HunguryS">
 <meta name="keywords" content="单例模式的六种方式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="单例模式的六种方式">
 <meta property="og:url" content="http://andev.top/2017/08/06/单利模式的六种实现方式/index.html">
 <meta property="og:site_name" content="后会无期">
-<meta property="og:description" content="#单例模式的六种方式#  1.饿汉式 12345678910111213141516171819202122232425262728293031public class HungurySingleton&amp;#123;    		private static final HungurySingleton h = new HungurySingleton（）；    		private HunguryS">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-10T00:59:00.808Z">
+<meta property="og:image" content="http://7xu251.com1.z0.glb.clouddn.com/189501361691558385.jpg">
+<meta property="og:updated_time" content="2018-06-10T01:54:23.460Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="单例模式的六种方式">
-<meta name="twitter:description" content="#单例模式的六种方式#  1.饿汉式 12345678910111213141516171819202122232425262728293031public class HungurySingleton&amp;#123;    		private static final HungurySingleton h = new HungurySingleton（）；    		private HunguryS">
+<meta name="twitter:image" content="http://7xu251.com1.z0.glb.clouddn.com/189501361691558385.jpg">
 
 
 
@@ -356,7 +355,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  444字
+                  434字
                 </span>
               
 
@@ -393,9 +392,16 @@
       
 
       
-        <p>#单例模式的六种方式#</p>
+        <p><img src="http://7xu251.com1.z0.glb.clouddn.com/189501361691558385.jpg" alt=""><br><a id="more"></a></p>
+<p>#单例模式的六种方式#</p>
 <p> 1.饿汉式</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HungurySingleton</span></span>&#123;</span><br><span class="line">    		<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> HungurySingleton h = <span class="keyword">new</span> HungurySingleton（）；</span><br><span class="line">    		<span class="keyword">private</span> HungurySingleton&#123;</span><br><span class="line">    		&#125;</span><br><span class="line"></span><br><span class="line">    		<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> HungurySingleton <span class="title">getHungurySingleton</span><span class="params">()</span></span>&#123;</span><br><span class="line">    			<span class="keyword">return</span> h;</span><br><span class="line">    		&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">- 不足：无法做延时加载</span><br><span class="line">- 优化：懒汉模式</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">2</span>.懒汉式</span><br><span class="line"></span><br><span class="line">```java</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LazySingleton</span></span>&#123;</span><br><span class="line">		<span class="keyword">private</span> <span class="keyword">static</span> LazySingleton instance;</span><br><span class="line"></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> LazySingleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">			<span class="keyword">if</span>(instance == <span class="keyword">null</span>)&#123;</span><br><span class="line">				instance = <span class="keyword">new</span> LazySingleton();</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">return</span> instance;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HungurySingleton</span></span>&#123;</span><br><span class="line">   		<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> HungurySingleton h = <span class="keyword">new</span> HungurySingleton（）；</span><br><span class="line">   		<span class="keyword">private</span> HungurySingleton&#123;</span><br><span class="line">   		&#125;</span><br><span class="line"></span><br><span class="line">   		<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> HungurySingleton <span class="title">getHungurySingleton</span><span class="params">()</span></span>&#123;</span><br><span class="line">   			<span class="keyword">return</span> h;</span><br><span class="line">   		&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>不足：无法做延时加载</li>
+<li>优化：懒汉模式</li>
+</ul>
+<p>2.懒汉式</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LazySingleton</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> LazySingleton instance;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> LazySingleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(instance == <span class="keyword">null</span>)&#123;</span><br><span class="line">			instance = <span class="keyword">new</span> LazySingleton();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> instance;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>缺点：多线程无法保证实例是唯一的</li>
 <li>优化：懒汉线程安全</li>
