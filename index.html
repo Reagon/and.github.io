@@ -221,26 +221,6 @@
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
             
@@ -537,7 +517,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  356字
+                  444字
                 </span>
               
 
@@ -578,114 +558,32 @@
           
             <p>#单例模式的六种方式#</p>
 <p> 1.饿汉式</p>
-<pre><code class="java">    public class HungurySingleton{
-            private static final HungurySingleton h = new HungurySingleton（）；
-            private HungurySingleton{
-            }
-
-            public static HungurySingleton getHungurySingleton(){
-                return h;
-            }
-
-    }
-</code></pre>
-<ul>
-<li>不足：无法做延时加载</li>
-<li>优化：懒汉模式</li>
-</ul>
-<p>2.懒汉式</p>
-<pre><code class="java">    public class LazySingleton{
-        private static LazySingleton instance;
-
-        public static LazySingleton getInstance(){
-            if(instance == null){
-                instance = new LazySingleton();
-            }
-            return instance;
-        }
-    }
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HungurySingleton</span></span>&#123;</span><br><span class="line">    		<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> HungurySingleton h = <span class="keyword">new</span> HungurySingleton（）；</span><br><span class="line">    		<span class="keyword">private</span> HungurySingleton&#123;</span><br><span class="line">    		&#125;</span><br><span class="line"></span><br><span class="line">    		<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> HungurySingleton <span class="title">getHungurySingleton</span><span class="params">()</span></span>&#123;</span><br><span class="line">    			<span class="keyword">return</span> h;</span><br><span class="line">    		&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">- 不足：无法做延时加载</span><br><span class="line">- 优化：懒汉模式</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">2</span>.懒汉式</span><br><span class="line"></span><br><span class="line">```java</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LazySingleton</span></span>&#123;</span><br><span class="line">		<span class="keyword">private</span> <span class="keyword">static</span> LazySingleton instance;</span><br><span class="line"></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> LazySingleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">			<span class="keyword">if</span>(instance == <span class="keyword">null</span>)&#123;</span><br><span class="line">				instance = <span class="keyword">new</span> LazySingleton();</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">return</span> instance;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>缺点：多线程无法保证实例是唯一的</li>
 <li>优化：懒汉线程安全</li>
 </ul>
 <p>3.线程安全懒汉式</p>
-<pre><code class="java">    public class LazySingleton{
-        private static  LazySingleton instance;
-
-        //方法中声明synchronized关键字
-        public static synchronized LazySingleton getInstance(){
-            if(instance == null){
-                instance = new LazySingleton();
-            }
-            return instance;
-        }
-
-        //同步代码块实现
-        public static  LazySingleton getInstance(){
-            synchronized(LazySingleton.class){
-                if(instance == null){
-                    instance = new LazySingleton();
-                }
-            }
-            return instance;
-        }
-    }
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LazySingleton</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span>  LazySingleton instance;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//方法中声明synchronized关键字</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> LazySingleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(instance == <span class="keyword">null</span>)&#123;</span><br><span class="line">			instance = <span class="keyword">new</span> LazySingleton();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> instance;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//同步代码块实现</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span>  LazySingleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">synchronized</span>(LazySingleton.class)&#123;</span><br><span class="line">			<span class="keyword">if</span>(instance == <span class="keyword">null</span>)&#123;</span><br><span class="line">				instance = <span class="keyword">new</span> LazySingleton();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> instance;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>不足：使用synchronized关键字导致性能缺陷</li>
 <li>优化：DCL-双重检锁机制</li>
 </ul>
 <p>4.双重检锁机制</p>
-<pre><code class="java">    public class DclSingleton{
-        private static volatile DclSingleton instance = null;
-
-        private DclSingleton(){
-        }
-
-        public static DclSingleton getInstance(){
-            if(instance == null){
-
-                synchronized(DclSingleton.class){
-                    if(instance == null){
-                        instance = new DclSingleton();
-                    }
-                }
-            }
-            return instance;
-        }
-    }
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DclSingleton</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">volatile</span> DclSingleton instance = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">DclSingleton</span><span class="params">()</span></span>&#123;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> DclSingleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(instance == <span class="keyword">null</span>)&#123;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">synchronized</span>(DclSingleton.class)&#123;</span><br><span class="line">				<span class="keyword">if</span>(instance == <span class="keyword">null</span>)&#123;</span><br><span class="line">					instance = <span class="keyword">new</span> DclSingleton();</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> instance;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>不足：JVM的即时编译器中存在指令重排序的优化</li>
 <li>优化：静态内部类/枚举</li>
 </ul>
 <p>5.静态内部类</p>
-<pre><code class="java">    public class StaticInnerSingleton{
-
-        private StaticInnerSingleton(){
-        }
-
-        public static StaticInnerSingleton getInstance(){
-            return SingletonHelper.sInstance;
-        }
-
-        private static class SingletonHelper{
-            private static final StaticInnerSingleton sInstance = new StaticInnerSingleton();
-        }
-    }
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StaticInnerSingleton</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">StaticInnerSingleton</span><span class="params">()</span></span>&#123;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> StaticInnerSingleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> SingletonHelper.sInstance;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonHelper</span></span>&#123;</span><br><span class="line">		<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> StaticInnerSingleton sInstance = <span class="keyword">new</span> StaticInnerSingleton();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>主要利用了类中静态变量的唯一性</p>
 <ul>
 <li>优点：JVM本身机制保证了线程安全/没有使用synchronized没有性能缺陷, private外部没有办法访问</li>
 <li>原因：static/final</li>
 </ul>
 <p>6.枚举</p>
-<pre><code class="java">    public enum EnumSingleton{
-        //定义一个枚举的元素，它就是Singleton的一个实例
-        INSTANCE;
-    }
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">   <span class="keyword">public</span> <span class="keyword">enum</span> EnumSingleton&#123;</span><br><span class="line">	<span class="comment">//定义一个枚举的元素，它就是Singleton的一个实例</span></span><br><span class="line">	INSTANCE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>优点：写法简单，线程安全</li>
 </ul>
