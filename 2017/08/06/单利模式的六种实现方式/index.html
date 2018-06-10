@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="#单例模式的六种方式#  1.饿汉式 public class HungurySingleton{     private static final HungurySingleton h = new HungurySingleton（）；      private HungurySingleton{     }      public static HungurySingleton getHung">
+<meta name="description" content="#单例模式的六种方式#  1.饿汉式     public class HungurySingleton{             private static final HungurySingleton h = new HungurySingleton（）；             private HungurySingleton{             }              pub">
 <meta name="keywords" content="单例模式的六种方式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="单例模式的六种方式">
 <meta property="og:url" content="http://andev.top/2017/08/06/单利模式的六种实现方式/index.html">
-<meta property="og:site_name" content="我的博客">
-<meta property="og:description" content="#单例模式的六种方式#  1.饿汉式 public class HungurySingleton{     private static final HungurySingleton h = new HungurySingleton（）；      private HungurySingleton{     }      public static HungurySingleton getHung">
+<meta property="og:site_name" content="后会无期">
+<meta property="og:description" content="#单例模式的六种方式#  1.饿汉式     public class HungurySingleton{             private static final HungurySingleton h = new HungurySingleton（）；             private HungurySingleton{             }              pub">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-06T03:43:57.893Z">
+<meta property="og:updated_time" content="2018-06-10T00:29:36.612Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="单例模式的六种方式">
-<meta name="twitter:description" content="#单例模式的六种方式#  1.饿汉式 public class HungurySingleton{     private static final HungurySingleton h = new HungurySingleton（）；      private HungurySingleton{     }      public static HungurySingleton getHung">
+<meta name="twitter:description" content="#单例模式的六种方式#  1.饿汉式     public class HungurySingleton{             private static final HungurySingleton h = new HungurySingleton（）；             private HungurySingleton{             }              pub">
 
 
 
@@ -140,7 +140,7 @@
 
 
 
-  <title>单例模式的六种方式 | 我的博客</title>
+  <title>单例模式的六种方式 | 后会无期</title>
   
 
 
@@ -176,12 +176,12 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">我的博客</span>
+        <span class="site-title">后会无期</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle">打工是不可能打工的 这辈子都不可能打工</p>
+        <p class="site-subtitle">打工是不可能打工的，这辈子都不可能打工</p>
       
   </div>
 
@@ -296,13 +296,13 @@
     <link itemprop="mainEntityOfPage" href="http://andev.top/2017/08/06/单利模式的六种实现方式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
+      <meta itemprop="name" content="Mr.z">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="http://7xu251.com1.z0.glb.clouddn.com/usee-qiniu-store-image-for-hexo/tx.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的博客">
+      <meta itemprop="name" content="后会无期">
     </span>
 
     
@@ -415,110 +415,115 @@
       
         <p>#单例模式的六种方式#</p>
 <p> 1.饿汉式</p>
-<pre><code>public class HungurySingleton{
-    private static final HungurySingleton h = new HungurySingleton（）；
+<pre><code class="java">    public class HungurySingleton{
+            private static final HungurySingleton h = new HungurySingleton（）；
+            private HungurySingleton{
+            }
 
-    private HungurySingleton{
+            public static HungurySingleton getHungurySingleton(){
+                return h;
+            }
+
     }
-
-    public static HungurySingleton getHungurySingleton(){
-            return h;
-    }
-
-}
-</code></pre><ul>
+</code></pre>
+<ul>
 <li>不足：无法做延时加载</li>
 <li>优化：懒汉模式</li>
 </ul>
 <p>2.懒汉式</p>
-<pre><code>public class LazySingleton{
-    private static LazySingleton instance;
+<pre><code class="java">    public class LazySingleton{
+        private static LazySingleton instance;
 
-    public static LazySingleton getInstance(){
-        if(instance == null){
-            instance = new LazySingleton();
+        public static LazySingleton getInstance(){
+            if(instance == null){
+                instance = new LazySingleton();
+            }
+            return instance;
         }
-        return instance;
     }
-}
-</code></pre><ul>
+</code></pre>
+<ul>
 <li>缺点：多线程无法保证实例是唯一的</li>
 <li>优化：懒汉线程安全</li>
 </ul>
 <p>3.线程安全懒汉式</p>
-<pre><code>public class LazySingleton{
-    private static  LazySingleton instance;
+<pre><code class="java">    public class LazySingleton{
+        private static  LazySingleton instance;
 
-    //方法中声明synchronized关键字
-    public static synchronized LazySingleton getInstance(){
-        if(instance == null){
-            instance = new LazySingleton();
-        }
-        return instance;
-    }
-
-    //同步代码块实现
-    public static  LazySingleton getInstance(){
-        synchronized(LazySingleton.class){
+        //方法中声明synchronized关键字
+        public static synchronized LazySingleton getInstance(){
             if(instance == null){
                 instance = new LazySingleton();
             }
+            return instance;
         }
-        return instance;
+
+        //同步代码块实现
+        public static  LazySingleton getInstance(){
+            synchronized(LazySingleton.class){
+                if(instance == null){
+                    instance = new LazySingleton();
+                }
+            }
+            return instance;
+        }
     }
-}
-</code></pre><ul>
+</code></pre>
+<ul>
 <li>不足：使用synchronized关键字导致性能缺陷</li>
 <li>优化：DCL-双重检锁机制</li>
 </ul>
 <p>4.双重检锁机制</p>
-<pre><code>public class DclSingleton{
-    private static volatile DclSingleton instance = null;
+<pre><code class="java">    public class DclSingleton{
+        private static volatile DclSingleton instance = null;
 
-    private DclSingleton(){
-    }
+        private DclSingleton(){
+        }
 
-    public static DclSingleton getInstance(){
-        if(instance == null){
+        public static DclSingleton getInstance(){
+            if(instance == null){
 
-            synchronized(DclSingleton.class){
-                if(instance == null){
-                    instance = new DclSingleton();
+                synchronized(DclSingleton.class){
+                    if(instance == null){
+                        instance = new DclSingleton();
+                    }
                 }
             }
+            return instance;
         }
-        return instance;
     }
-}
-</code></pre><ul>
+</code></pre>
+<ul>
 <li>不足：JVM的即时编译器中存在指令重排序的优化</li>
 <li>优化：静态内部类/枚举</li>
 </ul>
 <p>5.静态内部类</p>
-<pre><code>public class StaticInnerSingleton{
+<pre><code class="java">    public class StaticInnerSingleton{
 
-    private StaticInnerSingleton(){
-    }
+        private StaticInnerSingleton(){
+        }
 
-    public static StaticInnerSingleton getInstance(){
-        return SingletonHelper.sInstance;
-    }
+        public static StaticInnerSingleton getInstance(){
+            return SingletonHelper.sInstance;
+        }
 
-    private static class SingletonHelper{
-        private static final StaticInnerSingleton sInstance = new StaticInnerSingleton();
+        private static class SingletonHelper{
+            private static final StaticInnerSingleton sInstance = new StaticInnerSingleton();
+        }
     }
-}
-</code></pre><p>主要利用了类中静态变量的唯一性</p>
+</code></pre>
+<p>主要利用了类中静态变量的唯一性</p>
 <ul>
 <li>优点：JVM本身机制保证了线程安全/没有使用synchronized没有性能缺陷, private外部没有办法访问</li>
 <li>原因：static/final</li>
 </ul>
 <p>6.枚举</p>
-<pre><code>public enum EnumSingleton{
-    //定义一个枚举的元素，它就是Singleton的一个实例
-    INSTANCE;
-}
-</code></pre><ul>
+<pre><code class="java">    public enum EnumSingleton{
+        //定义一个枚举的元素，它就是Singleton的一个实例
+        INSTANCE;
+    }
+</code></pre>
+<ul>
 <li>优点：写法简单，线程安全</li>
 </ul>
 
@@ -622,8 +627,8 @@
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://7xu251.com1.z0.glb.clouddn.com/usee-qiniu-store-image-for-hexo/tx.jpg"
-               alt="John Doe" />
-          <p class="site-author-name" itemprop="name">John Doe</p>
+               alt="Mr.z" />
+          <p class="site-author-name" itemprop="name">Mr.z</p>
            
               <p class="site-description motion-element" itemprop="description">听过很多道理，依然过不好这一生</p>
           
@@ -701,7 +706,7 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
+  <span class="author" itemprop="copyrightHolder">Mr.z</span>
 </div>
 
 
